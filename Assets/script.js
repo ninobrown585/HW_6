@@ -10,7 +10,7 @@ $(document).ready(function(){
     var searchValueInput = $('#Thee-Search');
     var searchForm = $("#mySearch");
     var WeatherZone = $("#current-weather")
-    var apiKey = '250170e71f5020acdde2e8bfe0470ffe'
+    var apiKey = ''
     
 
     searchForm.submit(function( event ) {
@@ -39,6 +39,7 @@ $(document).ready(function(){
     function CurrentCityWeather(city) {
 
         WeatherZone.html('');
+        
           var fullUrl =weatherUrl + "q=" + city + "&appid=" + apiKey;
 
           console.log(city);
@@ -79,6 +80,7 @@ $(document).ready(function(){
     }
     function searchForFiveDay(city) {
         fiveDayZone.html('');
+        
         var forecastUrl =forecastUrl2 + "q=" + city + "&appid=" + apiKey;
         fetch(forecastUrl).then(function(response) {
                 return response.json();
@@ -124,7 +126,6 @@ $(document).ready(function(){
 
     }
     function getUVIndex (lat, lon) {
-        
         var finalUrl =uvIndexUrl2 + 'lat=' + lat + '&lon=' + lon + '&exclude=hourly,daily&appid=' + apiKey;
         fetch(finalUrl).then(function(response) {
         
